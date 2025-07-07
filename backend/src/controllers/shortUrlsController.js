@@ -5,6 +5,10 @@ const { v4: uuidv4 } = require('uuid');
 exports.store = async (req, res) => {
     const { originalUrl } = req.body;
 
+    if (!originalUrl || typeof originalUrl !== 'string') {
+        return res.status(400).json({ error: 'Invalid URL format.'});
+    }
+
     const shortCode = uuidv4().slice(0, 8);
 
     try {

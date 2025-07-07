@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de URLs</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>🔗 Encurtador de URL</h1>
+        <form id="urlForm">
+        <input
+            type="url"
+            id="originalUrl"
+            placeholder="Cole sua URL aqui"
+            required
+        />
+        <button type="submit">Encurtar</button>
+        </form>
+
+        <div id="result" class="result hidden">
+        <p>Sua URL curta:</p>
+        <a id="shortUrl" href="#" target="_blank"></a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+        <span id="modalClose" class="close">&times;</span>
+        <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/api-services.js"></script>
+
+
+</body>
+</html>
