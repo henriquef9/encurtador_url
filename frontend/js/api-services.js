@@ -17,7 +17,7 @@ form.addEventListener('submit', async (e) => {
     }
 
     try {
-        const response = await fetch('http://localhost:8000/my-system/urls', {
+        const response = await fetch('http://10.0.2.6:8000/my-system/urls', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,8 +30,8 @@ form.addEventListener('submit', async (e) => {
         }
 
         const data = await response.json();
-        shortUrl.textContent = "http://localhost:8000/my-system/urls/"+data.shortUrl.shortCode;
-        shortUrl.href = "http://localhost:8000/my-system/urls/"+data.shortUrl.shortCode;
+        shortUrl.textContent = "http://10.0.2.6:8000/my-system/urls/"+data.shortUrl.shortCode;
+        shortUrl.href = "http://10.0.2.6:8000/my-system/urls/"+data.shortUrl.shortCode;
         result.classList.remove('hidden');
     } catch (error) {
         showModal(error.message);

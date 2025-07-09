@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "80:80"
+    container_name: frontend
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    container_name: backend
+    environment:
+      AWS_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: SUA_ACCESS_KEY
+      AWS_SECRET_ACCESS_KEY: SUA_SECRET_KEY
+      DYNAMO_TABLE: ShortUrls

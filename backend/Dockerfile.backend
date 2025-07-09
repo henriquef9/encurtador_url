@@ -1,0 +1,16 @@
+FROM node:22-alpine
+
+# Cria diretório da aplicação
+WORKDIR /app
+
+# Copia os arquivos de dependência
+COPY backend/package*.json ./
+
+# Instala as dependências
+RUN npm install
+
+# Copia os arquivos do backend
+COPY backend .
+
+EXPOSE 8000
+CMD ["node", "server.js"]
