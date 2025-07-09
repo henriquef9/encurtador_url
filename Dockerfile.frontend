@@ -1,10 +1,12 @@
-# Usa uma imagem leve do Nginx
+    # Usa uma imagem leve do Nginx
 FROM nginx:alpine
 
 # Remove arquivos padrão do nginx
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copia os arquivos do seu frontend para a pasta do nginx
-COPY frontend/ /usr/share/nginx/html
+COPY ./frontend /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/nginx.conf
+
 
 EXPOSE 80
