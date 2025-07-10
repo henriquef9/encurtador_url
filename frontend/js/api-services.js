@@ -27,15 +27,15 @@ form.addEventListener('submit', async (e) => {
         });
 
         if (!response.ok) {
-            throw new Error('Erro ao encurtar a URL');
+            throw new Error('Erro ao encurtar a URL');  
         }
 
         const data = await response.json();
-        shortUrl.textContent = 'http://3.236.159.9'+url+'/'+data.shortUrl.shortCode;
-        shortUrl.href = 'http://3.236.159.9'+url+'/'+data.shortUrl.shortCode;
+        shortUrl.textContent = 'http://3.236.159.9'+url+data.shortUrl.shortCode;
+        shortUrl.href = 'http://3.236.159.9'+url+data.shortUrl.shortCode;
         result.classList.remove('hidden');
     } catch (error) {
-        showModal(error.message);
+        showModal("Falha ao encurtar a URL: " + error.message);
     }
 
 });
