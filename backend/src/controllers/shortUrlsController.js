@@ -2,6 +2,14 @@ const {createShortUrl, getShortUrl } = require('../services/shortUrlsService');
 
 const { v4: uuidv4 } = require('uuid');
 
+const crypto = require('crypto');
+
+function generateShortCodeFromUrl(originalUrl) {
+  const hash = crypto.createHash('sha256').update(originalUrl).digest('base64url');
+  return hash.slice(0, 10); 
+}
+
+
 exports.store = async (req, res) => {
     const { originalUrl } = req.body;
 
@@ -9,7 +17,7 @@ exports.store = async (req, res) => {
         return res.status(400).json({ error: 'Invalid URL format.'});
     }
 
-    const shortCode = uuidv4().slice(0, 8);
+    const shortCode = generateShortCodeFromUrl(originalUrl);
 
     try {
         const shortUrl = await createShortUrl({ originalUrl, shortCode });

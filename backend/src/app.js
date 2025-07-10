@@ -9,6 +9,6 @@ const router = require('./routes/router');
 
 app.use(cors());
 app.use(express.json());
-app.use('/my-system', router)
+app.use('/link', router)
 
 module.exports = app;

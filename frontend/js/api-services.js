@@ -5,7 +5,7 @@ const input = document.getElementById('originalUrl');
 const result = document.getElementById('result');
 const shortUrl = document.getElementById('shortUrl');
 
-const url = '/api/my-system/urls';
+const url = '/link/';
 
 form.addEventListener('submit', async (e) => {
 

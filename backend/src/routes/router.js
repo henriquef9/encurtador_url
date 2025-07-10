@@ -4,7 +4,7 @@ const router = express.Router();
 
 const urlsController = require('../controllers/shortUrlsController');
 
-router.get('/urls/:shortCode', urlsController.show);
-router.post('/urls', urlsController.store);
+router.get('/:shortCode', urlsController.show);
+router.post('/', urlsController.store);
 
 module.exports = router;
