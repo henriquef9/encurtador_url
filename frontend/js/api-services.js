@@ -31,8 +31,8 @@ form.addEventListener('submit', async (e) => {
         }
 
         const data = await response.json();
-        shortUrl.textContent = 'http://3.236.159.9'+url+data.shortUrl.shortCode;
-        shortUrl.href = 'http://3.236.159.9'+url+data.shortUrl.shortCode;
+        shortUrl.textContent = 'http://3.236.159.9'+url+'/'+data.shortUrl.shortCode;
+        shortUrl.href = 'http://3.236.159.9'+url+'/'+data.shortUrl.shortCode;
         result.classList.remove('hidden');
     } catch (error) {
         showModal(error.message);
